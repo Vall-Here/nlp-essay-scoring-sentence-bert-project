@@ -6,14 +6,14 @@ matplotlib
 seaborn
 wordcloud 
 nltk
-torch
+# torch
 # tensorflow
 transformers
 sentence-transformers
 scikit-learn
 tqdm
-torchvision
-torchaudio
+# torchvision
+# torchaudio
 # tf-keras
 optuna
 imblearn
