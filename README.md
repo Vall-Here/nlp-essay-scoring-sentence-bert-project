@@ -1,3 +1,3 @@
 # Short Answer Grading
 ## Arsitektur
-![alt text](Docs/img/arsitektur.png)
+![alt text](Docs/img/new_arts.jpg)
