@@ -7,14 +7,14 @@ seaborn
 wordcloud 
 nltk
 torch
+# tensorflow
 transformers
 sentence-transformers
-tensorflow
 scikit-learn
 tqdm
 torchvision
 torchaudio
-tf-keras
+# tf-keras
 optuna
 imblearn
 hf_xet
