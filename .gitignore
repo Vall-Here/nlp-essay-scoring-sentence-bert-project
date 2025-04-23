@@ -1,0 +1,9 @@
+# Ignore nltk_data folder in AES directory
+AES/nltk_data/
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
