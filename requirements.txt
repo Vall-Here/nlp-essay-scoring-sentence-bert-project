@@ -18,3 +18,4 @@ tqdm
 optuna
 imblearn
 hf_xet
+textblob
