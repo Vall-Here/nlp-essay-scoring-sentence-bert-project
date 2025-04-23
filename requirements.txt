@@ -20,3 +20,4 @@ imblearn
 hf_xet
 textblob
 language_tool_python
+openpyxl
