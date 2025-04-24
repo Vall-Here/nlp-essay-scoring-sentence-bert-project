@@ -1,5 +1,6 @@
 # Ignore nltk_data folder in AES directory
 AES/nltk_data/
+AES/models/
 
 # Ignore Python bytecode files
 __pycache__/

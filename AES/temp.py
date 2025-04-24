@@ -1,31 +1,10 @@
-import os
-import pathlib
-from collections import Counter
-from statistics import mean
-
-import re
-import matplotlib.pyplot as plt
-import nltk
-import numpy as np
-import pandas as pd
-import seaborn as sns; 
-import textstat as ts
-
-from sentence_transformers import SentenceTransformer
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, cohen_kappa_score
-from nltk.tokenize import sent_tokenize
-
-import textstat
-from textblob import TextBlob
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from transformers import RobertaTokenizer, RobertaModel
+def load_data(file_path):
+    df = pd.read_csv(file_path, sep='\t', encoding='latin1')
+    df = df[['essay_id', 'essay_set', 'essay', 'domain1_score']].dropna()
+    return df
 
 
+essays = load_data('../Dataset/asap-aes/training_set_rel3.tsv')
 
 class EssayPreprocessor:
     def __init__(self):
@@ -35,7 +14,7 @@ class EssayPreprocessor:
         self.sbert = SentenceTransformer('all-mpnet-base-v2')
         
     def preprocess_text(self, text):
-        # Basic cleaning
+        # Basic
         text = text.lower()
         text = re.sub(r'[^\w\s]', '', text)
         text = re.sub(r'\d+', '', text)
@@ -44,7 +23,7 @@ class EssayPreprocessor:
         tokens = word_tokenize(text)
         tokens = [t for t in tokens if t not in self.stop_words]
         
-        # Lemmatization with POS tagging
+        # Lemmi
         pos_tags = nltk.pos_tag(tokens)
         lemmatized = []
         for word, tag in pos_tags:
@@ -60,7 +39,7 @@ class EssayPreprocessor:
         return ' '.join(lemmatized)
     
     def extract_linguistic_features(self, text):
-    # Grammar and spelling
+         # Grammar and spelling
         matches = self.grammar_tool.check(text)
         grammar_errors = len(matches)
         
@@ -91,8 +70,6 @@ class EssayPreprocessor:
 preprocessor = EssayPreprocessor()
 
 essays['processed_text'] = essays['essay'].apply(preprocessor.preprocess_text)
-essays['processed_text']
-
 
 linguistic_features = essays['processed_text'].apply(preprocessor.extract_linguistic_features)
 linguistic_df =  pd.json_normalize(linguistic_features)
@@ -102,10 +79,8 @@ print("Generating SBERT embeddings...")
 sbert_embeddings = np.array(essays['processed_text'].apply(preprocessor.get_sbert_embedding).tolist())
 sbert_df = pd.DataFrame(sbert_embeddings)
 
-
 X = pd.concat([linguistic_df, sbert_df], axis=1)
 y = essays['domain1_score']
-
 
 
 class AESModel(nn.Module):
@@ -133,7 +108,6 @@ class AESModel(nn.Module):
         x = self.fc3(x)
         x = self.relu(x)
         return self.fc_out(x)
-    
 
 
 def train_model(X_train, y_train, params):
@@ -211,10 +185,12 @@ def objective(trial):
     return np.mean(rmse_scores,r2_scores)
 
 
+
 study = optuna.create_study(direction='maximize')
 study.optimize(objective, n_trials=5)
 best_params = study.best_params
 print("Best hyperparameters:", best_params)
+
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
