@@ -7,4 +7,4 @@
 
 
 ## ASAP-AES
-![alt text](Docs/img/Final%20MODEL.jpg.png)
+![alt text](Docs/img/Final%20MODEL.jpg)
