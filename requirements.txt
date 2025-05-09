@@ -23,3 +23,5 @@ language_tool_python
 openpyxl
 dill
 textstat
+plotly
+nbformat
