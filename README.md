@@ -4,15 +4,15 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 
 ## Model Result Overview
 
-![Model Result plot](./AES/data/output.png)
+![Model Result plot](./AES/img/output.png)
 
 ## Optimisation History
 
-![Optimisation History plot](./AES/data/newplot.png)
+![Optimisation History plot](./AES/img/newplot.png)
 
 ## Hyperparameter importance
 
-![Hyperparameter importance](./AES/data/hpnewplot.png)
+![Hyperparameter importance](./AES/img/hpnewplot.png)
 
 ### System Components
 
