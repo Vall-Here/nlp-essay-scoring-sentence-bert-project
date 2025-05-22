@@ -2,9 +2,17 @@
 
 This project implements a machine learning-based Automated Essay Scoring (AES) system specifically designed for Indonesian language essays. The system utilizes BERT (Bidirectional Encoder Representations from Transformers) embeddings and neural networks to automatically grade student essay responses.
 
-## Architecture Overview
+## Model Result Overview
 
-![Architecture Diagram](./data/output.png)
+![Model Result plot](./data/output.png)
+
+## Optimisation History
+
+![Optimisation History plot](./data/newplot.png)
+
+## Hyperparameter importance
+
+![Hyperparameter importance](./data/hpnewplot.png)
 
 ### System Components
 
