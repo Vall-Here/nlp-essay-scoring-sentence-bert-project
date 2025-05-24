@@ -18,6 +18,16 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 
 ![Hyperparameter importance](./AES/img/hpnewplot.png)
 
+## Best Model Summary
+
+![Model Eval](./AES/img/nn.png)
+
+## Evaluation Result
+
+   MSE: 0.0202
+   QWK: 0.7131
+   R2 Score: 0.5727
+
 ### System Components
 
 1. **Data Processing Pipeline**
@@ -47,6 +57,7 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 ## Experiment Setup
 
 ### Dataset
+
 - Indonesian student essay answers from multiple classes/subjects:
   - DPK (TKJ)
   - MPP (RPL)
@@ -56,12 +67,14 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 - Scores normalized from 0-4 scale
 
 ### Preprocessing
+
 1. Text cleaning: lowercasing, removing special characters and extra whitespace
 2. Stop word removal using NLTK's Indonesian stopwords
 3. Tokenization with word_tokenize and sent_tokenize
 4. SBERT embedding generation (768-dimensional vectors)
 
 ### Training Methodology
+
 1. Feature preparation:
    - Generate SBERT embeddings for all essays and reference answers
    - Extract linguistic features (vocabulary richness, sentence length, word count)
@@ -78,6 +91,7 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
    - CUDA acceleration when available
 
 ### Evaluation Metrics
+
 1. **Mean Squared Error (MSE)**: Measures average squared difference between predicted and actual scores
 2. **Quadratic Weighted Kappa (QWK)**: Measures agreement between human and automated scoring
 3. **R² Score**: Coefficient of determination indicating prediction quality
