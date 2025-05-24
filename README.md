@@ -24,9 +24,11 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 
 ## Evaluation Result
 
+```txt
    MSE: 0.0202
    QWK: 0.7131
-   R2 Score: 0.5727
+   R2 Score: 0.572
+```
 
 ### System Components
 
@@ -44,6 +46,7 @@ This project implements a machine learning-based Automated Essay Scoring (AES) s
 3. **Model Architecture**
    - **Type**: Deep Neural Network
    - **Input Layer**: Combined SBERT embeddings + linguistic features + similarity score
+   - **Batch Normalisation** : to stabilize and accelerate the training process
    - **Hidden Layers**: Customizable number of fully connected layers with ReLU activations
    - **Regularization**: Dropout to prevent overfitting
    - **Output Layer**: Single neuron with sigmoid activation scaled to the 0-4 range
