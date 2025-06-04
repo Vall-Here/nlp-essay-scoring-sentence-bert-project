@@ -2,6 +2,7 @@
 AES/nltk_data/
 AES/models/
 AES/data/
+AES/final/
 # Ignore Python bytecode files
 __pycache__/
 *.pyc
