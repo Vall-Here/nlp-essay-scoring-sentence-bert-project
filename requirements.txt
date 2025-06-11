@@ -6,7 +6,7 @@ matplotlib
 seaborn
 wordcloud 
 nltk
-# torch
+# torch >=2.6.1
 # tensorflow
 transformers
 sentence-transformers
@@ -25,3 +25,5 @@ dill
 textstat
 plotly
 nbformat
+pretrainedmodels
+gradio
